@@ -1,0 +1,11 @@
+<div class="container">
+  <p class="title is-2"><%= @place.name %></p>
+  <figure class="image is-16by9"><br>
+    <img src='/<%= @place.image %>' alt='<%= @place.name %>'> 
+  </figure>
+  <p>Город:<b><%= @place.city %></b></p><br>
+  <p>Рейтинг: <b class="has-text-danger"><%= @place.rating %></b></p><br>
+  <p><%= @place.description %></p><br>
+  <p><%= @place.coordinates %></p><br>
+</div>
+

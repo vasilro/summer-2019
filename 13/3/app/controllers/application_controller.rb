@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    @places = Place.all 
+    @places = Place.all
     erb :index
   end
 end

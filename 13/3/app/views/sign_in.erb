@@ -4,7 +4,7 @@
   <div class="field">
     <label class="label">Email</label>
   <p class="control has-icons-left has-icons-right">
-    <input class="input" type="email" name="email" placeholder="Email">
+    <input class="input" type="email" name="email" placeholder="Email" value=<% if @email %>"<%= @email %>"<% end %>>
     <span class="icon is-small is-left">
       <i class="fas fa-envelope"></i>
     </span>

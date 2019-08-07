@@ -19,45 +19,46 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-             <% if current_user %>
-             Hey,&nbsp; <b><%= current_user.name %></b> &nbsp;&nbsp;
-             <a href="/logout" class="button is-danger">
-              <b>Sign out</b>
-            </a>
-            <% else %>
-            <a href="/sign_in" class="button is-success">
-              <b>Sign in</b>
-            </a>
-            <a href="/sign_up" class="button is-warning">
-              <strong>Sign up</strong>
-            </a>
-            <% end %>
+              <% if current_user %>
+                Hey,&nbsp; <b><%= current_user.name %></b> &nbsp;&nbsp;
+                <a href="/logout" class="button is-danger">
+                <b>Sign out</b>
+                </a>
+              <% else %>
+                <a href="/sign_in" class="button is-success">
+                <b>Sign in</b>
+                </a>
+                <a href="/sign_up" class="button is-warning">
+                <strong>Sign up</strong>
+                </a>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </nav> 
-</div>
+    </nav> 
+  </div>
 <section class="section">
   <% if @flash_error %>
     <div class="container">
-  <div class="notification is-danger" style="max-width: 700px; margin: 1em auto 1em auto;">
-  <button class="delete"></button>
-<%= @flash_error %>
-</div>
+      <div class="notification is-danger" style="max-width: 700px; margin: 1em auto 1em auto;">
+        <button class="delete"></button>
+        <%= @flash_error %>
+      </div>
+    </div>
   <% end %>
   <% flash.keys.each do |type| %>
-<% if type == :notice %>
-<div class="container">
-  <div class="notification is-danger" style="max-width: 700px; margin: 1em auto 1em auto;">
-  <button class="delete"></button>
-<%= flash[:notice] %>
-</div>
-<% end %>
-<% end %>
+    <% if type == :notice %>
+      <div class="container">
+        <div class="notification is-danger" style="max-width: 700px; margin: 1em auto 1em auto;">
+          <button class="delete"></button>
+          <%= flash[:notice] %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
   <%= yield %>
 </section>
-</div>
 <footer class="footer">
   <div class="content has-text-centered">
     <p>
@@ -69,13 +70,13 @@
 </footer>
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', () => {
-  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
-    $notification = $delete.parentNode;
-    $delete.addEventListener('click', () => {
-      $notification.parentNode.removeChild($notification);
+    (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+      $notification = $delete.parentNode;
+      $delete.addEventListener('click', () => {
+        $notification.parentNode.removeChild($notification);
+      });
     });
   });
-});
 </script>
 </body>
 </html>

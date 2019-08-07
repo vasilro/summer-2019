@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="columns">
+    <% @places.each do |place| %>
+    <div class="column">
+      <figure class="image is-square">
+        <a href="places/<%= place.id %>">
+          <img src='<%= place.image %>' alt='<%= place.name %>'> 
+        </a>
+      </figure>
+      <br>
+      <p class="title is-5">
+        <%= place.name %>
+      </p>
+      <p>
+        Город:
+        <b>
+          <%= place.city %>
+        </b>
+      </p>
+      <br>
+      <p>
+        <%= place.description[0..50].strip + '...' %>
+      </p>
+      <br>
+      <a style="padding-top: 130px;" href="places/<%= place.id %>">
+        Читать далее
+      </a>
+    </div>
+    <% end %>
+  </div>
+</div>

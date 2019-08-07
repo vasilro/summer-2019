@@ -1,4 +1,3 @@
-require_relative 'application_controller'
 
 class TestimonialsController < ApplicationController
   post '/places/:place_id/testimonials' do

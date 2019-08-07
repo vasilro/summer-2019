@@ -1,7 +1,3 @@
-require 'sinatra/flash'
-require 'sinatra/session'
-require './config/environment'
-require_relative 'users_controller'
 
 class ApplicationController < Sinatra::Base
 

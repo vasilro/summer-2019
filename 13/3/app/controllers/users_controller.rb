@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       session[:user_id] = @new_user.id
       redirect '/'
     else
-      flash[:notice] = @new_user.errors.full_messages.join('; ')
+      @flash_error = @new_user.errors.full_messages.join('; ')
       erb :sign_up
     end
   end

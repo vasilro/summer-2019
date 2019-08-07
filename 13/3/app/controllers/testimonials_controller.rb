@@ -9,7 +9,7 @@ class TestimonialsController < ApplicationController
       user: current_user
     )
     unless new_testimonial.save
-    flash[:notice] = new_testimonial.errors.full_messages.join('; ')
+    @flash_error = new_testimonial.errors.full_messages.join('; ')
     @testimonial_text = params[:testimonial_text]
     erb :place
     else

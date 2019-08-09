@@ -8,12 +8,12 @@ class TestimonialsController < ApplicationController
       rating: params[:rating],
       user: current_user
     )
+    @testimonials = @place.testimonials
     unless new_testimonial.save
-    @flash_error = new_testimonial.errors.full_messages.join('; ')
-    @testimonial_text = params[:testimonial_text]
-    erb :place
+      @error = new_testimonial.errors.full_messages.join('; ')
+      erb :place
     else
-    redirect "/places/#{params[:place_id]}"
+      redirect "/places/#{params[:place_id]}"
     end
   end
 end

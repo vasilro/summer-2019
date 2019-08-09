@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       flash[:notice] = 'You successfully logged in!'
       redirect '/'
     else
-      @flash_error = 'Invalid email/password combo!'
+      @error = 'Invalid email/password combo!'
       @email = params[:email]
       erb :sign_in
     end

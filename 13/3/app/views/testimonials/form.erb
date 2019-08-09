@@ -1,9 +1,7 @@
 <form action=<%= "/places/#{@place.id}/testimonials" %> method='post'>
   <label class="label">Ваш отзыв</label>
   <textarea class="textarea" name="testimonial_text" placeholder="Ваш отзыв">
-    <% if @testimonial_text %>
-    <%= @testimonial_text %>
-    <% end %>
+    <%= params[:testimonial_text] %>
   </textarea><br>
   <label class="label">Ваш рейтинг</label>
   <div class="select">

@@ -9,11 +9,11 @@ class TestimonialsController < ApplicationController
       user: current_user
     )
     @testimonials = @place.testimonials
-    unless new_testimonial.save
+    if new_testimonial.save
+      redirect "/places/#{params[:place_id]}"
+    else
       @error = new_testimonial.errors.full_messages.join('; ')
       erb :place
-    else
-      redirect "/places/#{params[:place_id]}"
     end
   end
 end

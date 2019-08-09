@@ -11,17 +11,17 @@
           <div class="navbar-item">
             <div class="buttons">
               <% if current_user %>
-              Hey,&nbsp; <b><%= current_user.name %></b> &nbsp;&nbsp;
-              <a href="/logout" class="button is-danger">
-                <b>Sign out</b>
-              </a>
+                Hey,&nbsp; <b><%= current_user.name %></b> &nbsp;&nbsp;
+                <a href="/logout" class="button is-danger">
+                  <b>Sign out</b>
+                </a>
               <% else %>
-              <a href="/sign_in" class="button is-success">
-                <b>Sign in</b>
-              </a>
-              <a href="/sign_up" class="button is-warning">
-                <strong>Sign up</strong>
-              </a>
+                <a href="/sign_in" class="button is-success">
+                  <b>Sign in</b>
+                </a>
+                <a href="/sign_up" class="button is-warning">
+                  <strong>Sign up</strong>
+                </a>
               <% end %>
             </div>
           </div>

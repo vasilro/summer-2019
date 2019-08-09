@@ -4,13 +4,13 @@
     <div class="field">
       <label class="label">Name</label>
       <div class="control">
-        <input class="input" type="text" name="name" placeholder="Text input" value=<% if @new_user%>"<%= @new_user.name%>" <%end%>>
+        <input class="input" type="text" name="name" placeholder="Text input" value="<%= @new_user&.name%>">
       </div>
     </div>
     <div class="field">
       <label class="label">Email</label>
       <div class="control has-icons-left has-icons-right">
-        <input class="input" type="email" name="email" placeholder="Email input" value=<% if @new_user%>"<%= @new_user.email %>"<%end%>>
+        <input class="input" type="email" name="email" placeholder="Email input" value="<%= @new_user&.email%>">
         <span class="icon is-small is-left">
           <i class="fas fa-envelope"></i>
         </span>

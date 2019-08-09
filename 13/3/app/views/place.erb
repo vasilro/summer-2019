@@ -24,52 +24,7 @@
   <iframe src="https://maps.google.com/maps?q=<%= @place.latitude %>%2C%20<%= @place.longitude%>&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="800" frameborder="0" style="border:0" allowfullscreen></iframe>
   <br>
   <br>
-  <% if @place.testimonials_count %>
-    <p class="title is-4">
-    Отзывы посетителей
-    </p>
-    <% testimonials = @place.testimonials.includes(:user) %>
-    <% testimonials.each do |testimonial| %>
-      <div class="box">
-        <article class="media">
-          <div class="media-content">
-            <div class="content">
-              <p>
-              <strong><%= testimonial.user.name %></strong>
-              <br>
-              <%= testimonial.text %>
-              </p>
-              <br>
-              <strong>Оценка:<b class="has-text-danger"> <%= testimonial.rating %></b></strong>
-            </div>
-          </div>
-        </article>
-      </div>
-    <% end %>
-  <% end %>
-  <% if current_user%>
-    <form action=<%= "/places/#{@place.id}/testimonials" %> method='post'>
-      <label class="label">Ваш отзыв</label>
-      <textarea class="textarea" name="testimonial_text" placeholder="Ваш отзыв">
-        <% if @testimonial_text %>
-          <%= @testimonial_text %>
-        <% end %>
-      </textarea><br>
-      <label class="label">Ваш рейтинг</label>
-      <div class="select">
-        <select name="rating">
-        <option value="none" selected>нет оценки</option>
-        <option value=1>1</option>
-        <option value=2>2</option>
-        <option value=3>3</option>
-        <option value=4>4</option>
-        <option value=5>5</option>
-        </select>
-      </div>
-      <div class="control" style="margin-top: 1em;">
-        <button type="submit" class="button is-danger"><b>Опубликовать</b></button>
-      </div>
-    </form>
-  <% end %>
+  <%= partial 'testimonials/all_testimonials' if @place.testimonials_count %>
+  <%= partial 'testimonials/form' if current_user %>
 </div>
 

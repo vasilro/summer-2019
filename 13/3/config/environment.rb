@@ -1,5 +1,6 @@
 require 'digest'
 require 'sinatra'
+require 'sinatra/partial'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/activerecord'

@@ -1,0 +1,22 @@
+<form action=<%= "/places/#{@place.id}/testimonials" %> method='post'>
+  <label class="label">Ваш отзыв</label>
+  <textarea class="textarea" name="testimonial_text" placeholder="Ваш отзыв">
+    <% if @testimonial_text %>
+    <%= @testimonial_text %>
+    <% end %>
+  </textarea><br>
+  <label class="label">Ваш рейтинг</label>
+  <div class="select">
+    <select name="rating">
+      <option value="none" selected>нет оценки</option>
+      <option value=1>1</option>
+      <option value=2>2</option>
+      <option value=3>3</option>
+      <option value=4>4</option>
+      <option value=5>5</option>
+    </select>
+  </div>
+  <div class="control" style="margin-top: 1em;">
+    <button type="submit" class="button is-danger"><b>Опубликовать</b></button>
+  </div>
+</form>

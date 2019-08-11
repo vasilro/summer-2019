@@ -1,4 +1,3 @@
-require_relative 'application_controller'
 
 class UsersController < ApplicationController
   
@@ -18,7 +17,7 @@ class UsersController < ApplicationController
       session[:user_id] = @new_user.id
       redirect '/'
     else
-      flash[:notice] = @new_user.errors.full_messages.join('; ')
+      @error = @new_user.errors.full_messages.join('; ')
       erb :sign_up
     end
   end

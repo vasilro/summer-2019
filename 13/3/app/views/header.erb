@@ -1,0 +1,32 @@
+<header>
+  <div class="container">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <h2 class="title">restorator</h2>
+        </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <% if current_user %>
+                Hey,&nbsp; <b><%= current_user.name %></b> &nbsp;&nbsp;
+                <a href="/logout" class="button is-danger">
+                  <b>Sign out</b>
+                </a>
+              <% else %>
+                <a href="/sign_in" class="button is-success">
+                  <b>Sign in</b>
+                </a>
+                <a href="/sign_up" class="button is-warning">
+                  <strong>Sign up</strong>
+                </a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav> 
+  </div>
+</header>

@@ -1,0 +1,20 @@
+<p class="title is-4">
+  Отзывы посетителей
+</p>
+<% @testimonials.each do |testimonial| %>
+  <div class="box">
+    <article class="media">
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong><%= testimonial.user.name %></strong>
+            <br>
+            <%= testimonial.text %>
+          </p>
+          <br>
+          <strong>Оценка:<b class="has-text-danger"> <%= testimonial.rating %></b></strong>
+        </div>
+      </div>
+    </article>
+  </div>
+<% end %>

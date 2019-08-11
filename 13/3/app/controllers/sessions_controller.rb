@@ -1,4 +1,3 @@
-require_relative 'application_controller'
 
 class SessionsController < ApplicationController
   get '/sign_in' do
@@ -9,16 +8,18 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email]).try(:authenticate, params[:password])
     if user
       session[:user_id] = user.id
+      flash[:notice] = 'You successfully logged in!'
       redirect '/'
     else
-      flash[:notice] = 'Invalid email/password combo!'
+      @error = 'Invalid email/password combo!'
       @email = params[:email]
       erb :sign_in
     end
   end
 
   get '/logout' do
+    flash[:notice] = 'You successfully logged out!'
     session.delete(:user_id)
-    redirect back
+    redirect '/'
   end
 end

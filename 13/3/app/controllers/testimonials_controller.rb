@@ -1,4 +1,3 @@
-require_relative 'application_controller'
 
 class TestimonialsController < ApplicationController
   post '/places/:place_id/testimonials' do
@@ -9,12 +8,12 @@ class TestimonialsController < ApplicationController
       rating: params[:rating],
       user: current_user
     )
-    unless new_testimonial.save
-    flash[:notice] = new_testimonial.errors.full_messages.join('; ')
-    @testimonial_text = params[:testimonial_text]
-    erb :place
+    @testimonials = @place.testimonials
+    if new_testimonial.save
+      redirect "/places/#{params[:place_id]}"
     else
-    redirect "/places/#{params[:place_id]}"
+      @error = new_testimonial.errors.full_messages.join('; ')
+      erb :place
     end
   end
 end
